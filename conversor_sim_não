@@ -1,0 +1,398 @@
+var voltar = 'sim'
+do{
+    //Converte decimal para binário 
+    var n_decimal, n_convertido, binario = [], base, conver, octal = [], hexa = [], n_recebido, p_decimal, p_binario, n_transformado = [], n_resultado, i = 0 , n_numero, f = 0, quase_convertido, n_hexa, convertido, p_octal, p_hexa;
+
+    //Pega a base e o número 
+    base = Number(prompt("Insira o número indicado para a base que deseja converter:\n1. Decimal\n2. Binário\n3. Octal\n4. Hexadecimal"));
+
+
+    //DE BINARIO, HEXA E OCTA PARA **DECIMAL** (⊙o⊙)
+    if(base == 1){
+        p_decimal = Number(prompt("Insira o número que representa a base da qual o decimal vai ser convertido:\n1. Binário\n2. Octal\n3. Hexadecimal"));
+        if(p_decimal == 1){//binario
+            n_recebido = prompt("Insira o número binário para ser convertido para decimal:");
+            n_transformado = n_recebido.split("");
+            n_transformado.reverse();
+            n_numero = n_transformado.map(Number);
+            console.log(n_numero);
+            for ( i = 0; i <= (n_numero.length -1); i++){    
+                n_resultado = n_numero[i]*(Math.pow(2,i));
+                f += n_resultado;
+            }
+            alert("O número convertido é: " + f);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+        }
+        if(p_decimal == 2){//octal
+            n_recebido = prompt("Insira o número octal para ser convertido para decimal:");
+            n_transformado = n_recebido.split("");
+            n_transformado.reverse();
+            n_numero = n_transformado.map(Number);
+            console.log(n_numero);
+            for ( i = 0; i <= (n_numero.length -1); i++){    
+                n_resultado = n_numero[i]*(Math.pow(8,i));
+                f += n_resultado;
+            }
+            alert("O número convertido é: " + f);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+        }
+        if(p_decimal == 3){//hexadecimal
+            n_recebido = prompt("Insira o número hexadecimal para ser convertido para decimal:");
+            n_mai = n_recebido.toUpperCase()
+            n_hexa = n_mai.split("")
+            console.log(n_hexa)
+            while(i <= n_hexa.length){
+                if(n_hexa.indexOf('A') != -1){
+                    var pos = n_hexa.indexOf('A')
+                    n_hexa[pos] = '10'
+                }
+                if(n_hexa.indexOf('B') != -1){
+                    var pos = n_hexa.indexOf('B')
+                    n_hexa[pos] = '11'
+                }
+                if(n_hexa.indexOf('C') != -1){
+                    var pos = n_hexa.indexOf('C')
+                    n_hexa[pos] = '12'
+                }
+                if(n_hexa.indexOf('D') != -1){
+                    var pos = n_hexa.indexOf('D')
+                    n_hexa[pos] = '13'
+                }
+                if(n_hexa.indexOf('E') != -1){
+                    var pos = n_hexa.indexOf('E')
+                    n_hexa[pos] = '14'
+                }
+                if(n_hexa.indexOf('F') != -1){
+                    var pos = n_hexa.indexOf('F')
+                    n_hexa[pos] = '15'
+                }
+                i++
+            }
+            quase_convertido = n_hexa.map(Number)
+            quase_convertido.reverse()
+            for ( i = 0; i <= (quase_convertido.length -1); i++){    
+                n_resultado = quase_convertido[i]*(Math.pow(16,i));
+                f += n_resultado;
+            }
+            alert("O número convertido é: " + f);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+        }
+    }
+
+
+    //DECIMAL, HEXA E OCTAL PARA **BINARIO** (⊙o⊙)
+    if(base == 2){
+        p_binario = Number(prompt("Insira o número que representa a base da qual o binário vai ser convertido:\n1. Decimal\n2. Octal\n3. Hexadecimal"));
+        if(p_binario == 1){//decimal
+            n_recebido = Number(prompt("Insira o número decimal para ser convertido para binário:"));
+            n_decimal = n_recebido; 
+            while(n_decimal >= 1){
+                n_convertido = n_decimal;
+                n_convertido=  n_convertido%2;
+                binario.push(n_convertido);
+                n_decimal = Math.floor(n_decimal / 2);
+            }
+            binario.reverse();
+            conver = binario.join("");
+            alert("O número convertido é: " + conver);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+        }
+        if(p_binario == 2){//octal
+            n_recebido = prompt("Insira o número octal para ser convertido para binário:");
+            n_transformado = n_recebido.split("");
+            n_transformado.reverse();
+            n_numero = n_transformado.map(Number);
+            for ( i = 0; i <= (n_numero.length -1); i++){    
+                n_resultado = n_numero[i]*(Math.pow(8,i));
+                f += n_resultado;
+            }
+            console.log(f)
+            while(f >= 1){
+                n_convertido = f;
+                n_convertido=  n_convertido%2;
+                binario.push(n_convertido);
+                f = Math.floor(f / 2);
+            }
+            binario.reverse();
+            conver = binario.join("");
+            alert("O número convertido é: " + conver);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+        }
+        if(p_binario == 3){         
+        //hexadecimal
+            n_recebido = prompt("Insira o número hexadecimal para ser convertido para binário:");
+            n_mai = n_recebido.toUpperCase()
+            n_hexa = n_mai.split("")
+            //console.log(n_hexa)
+            while(i <= n_hexa.length){
+                if(n_hexa.indexOf('A') != -1){
+                        var pos = n_hexa.indexOf('A')
+                        n_hexa[pos] = '1010'
+                }
+                if(n_hexa.indexOf('B') != -1){
+                        var pos = n_hexa.indexOf('B')
+                        n_hexa[pos] = '1011'
+                }
+                if(n_hexa.indexOf('C') != -1){
+                        var pos = n_hexa.indexOf('C')
+                        n_hexa[pos] = '1100'
+                }
+                if(n_hexa.indexOf('D') != -1){
+                        var pos = n_hexa.indexOf('D')
+                        n_hexa[pos] = '1101'
+                }
+                if(n_hexa.indexOf('E') != -1){
+                        var pos = n_hexa.indexOf('E')
+                        n_hexa[pos] = '1110'
+                }
+                if(n_hexa.indexOf('F') != -1){
+                        var pos = n_hexa.indexOf('F')
+                        n_hexa[pos] = '1111'
+                }
+                i++
+            }
+            quase_convertido = n_hexa.map(Number)
+            convertido = quase_convertido.join("")
+            alert("O número convertido é: " + convertido);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+            
+        }
+    }
+
+    //DECIMAL, HEXA E BINÁRIO PARA **OCTAL** (⊙o⊙)
+    if(base == 3){
+        p_octal = Number(prompt("Insira o número que representa a base da qual o binário vai ser convertido:\n1. Decimal\n2. Binário\n3. Hexadecimal"));
+        if(p_octal == 1){ //decimal
+            n_recebido = Number(prompt("Insira o número decimal para ser convertido para octal:"));
+            n_decimal = n_recebido;
+            while(n_decimal >= 1){
+                n_convertido = n_decimal;
+                n_convertido =  n_convertido%8;
+                octal.push(n_convertido);
+                n_decimal = Math.floor(n_decimal/8);
+            }
+            octal.reverse();
+            conver = octal.join("");
+            alert("O número convertido é: " + conver);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+            //console.log(conver)
+        }
+        if(p_octal == 2){ //binário
+            n_recebido = prompt("Insira o número binário para ser convertido para octal:");
+            n_transformado = n_recebido.split("");
+            n_transformado.reverse();
+            n_numero = n_transformado.map(Number);
+            console.log(n_numero);
+            for ( i = 0; i <= (n_numero.length -1); i++){    
+                n_resultado = n_numero[i]*(Math.pow(2,i));
+                f += n_resultado;
+            }
+            //console.log(typeof f)
+            n_decimal = f
+            while(n_decimal >= 1){
+                n_convertido = n_decimal;
+                n_convertido =  n_convertido%8;
+                octal.push(n_convertido);
+                n_decimal = Math.floor(n_decimal/8);
+            }
+            octal.reverse();
+            conver = octal.join("");
+            alert("O número convertido é: " + conver);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+            //console.log(conver)
+        }
+        if(p_octal == 3){
+            n_recebido = prompt("Insira o número hexadecimal para ser convertido para octal:");
+            n_mai = n_recebido.toUpperCase()
+            n_hexa = n_mai.split("");
+            //console.log(n_hexa);
+            while(i <= n_hexa.length){
+                if(n_hexa.indexOf('A') != -1){
+                    var pos = n_hexa.indexOf('A');
+                    n_hexa[pos] = '10';
+                }
+                if(n_hexa.indexOf('B') != -1){
+                    var pos = n_hexa.indexOf('B');
+                    n_hexa[pos] = '11';
+                }
+                if(n_hexa.indexOf('C') != -1){
+                    var pos = n_hexa.indexOf('C');
+                    n_hexa[pos] = '12';
+                }
+                if(n_hexa.indexOf('D') != -1){
+                    var pos = n_hexa.indexOf('D');
+                    n_hexa[pos] = '13';
+                }
+                if(n_hexa.indexOf('E') != -1){
+                    var pos = n_hexa.indexOf('E');
+                    n_hexa[pos] = '14';
+                }
+                if(n_hexa.indexOf('F') != -1){
+                    var pos = n_hexa.indexOf('F');
+                    n_hexa[pos] = '15';
+                }
+                i++
+            }
+            quase_convertido = n_hexa.map(Number);
+            quase_convertido.reverse();
+            for ( i = 0; i <= (quase_convertido.length -1); i++){    
+                n_resultado = quase_convertido[i]*(Math.pow(16,i));
+                f += n_resultado;
+            }
+            //console.log(f)
+            n_decimal = f
+            while(n_decimal >= 1){
+                n_convertido = n_decimal;
+                n_convertido =  n_convertido%8;
+                octal.push(n_convertido);
+                n_decimal = Math.floor(n_decimal/8);
+            }
+            octal.reverse();
+            conver = octal.join("");
+            alert("O número convertido é: " + conver);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+            //console.log(conver)
+        }
+    }
+
+    //Converte para hexa 
+    if(base == 4){
+        p_hexa = Number(prompt("Insira o número que representa a base da qual o hexadecimal vai ser convertido:\n1. Decimal\n2. Binário\n3. Octal"));
+        if(p_hexa == 1){
+            n_recebido = Number(prompt("Insira o número para ser convertido:"));
+            n_decimal = n_recebido;
+            while(n_decimal >= 1){
+                n_convertido = n_decimal;
+                n_convertido =  n_convertido % 16;
+                hexa.push(n_convertido);
+                n_decimal = Math.floor(n_decimal/16);
+            }
+            hexa.reverse();
+            //console.log(hexa)
+            //até aqui deu certo
+            for( i = 0; i <= hexa.length; i++){
+                if(hexa.indexOf(10) != -1){
+                    var pos = hexa.indexOf(10);
+                    hexa[pos] = 'A';
+                } else if(hexa.indexOf(11) != -1){
+                    var pos = hexa.indexOf(11);
+                    hexa[pos] = 'B';
+                } else if(hexa.indexOf(12) != -1){
+                    var pos = hexa.indexOf(12);
+                    hexa[pos] = 'C';
+                } else if(hexa.indexOf(13) != -1){
+                    var pos = hexa.indexOf(13);
+                    hexa[pos] = 'D';
+                } else if(hexa.indexOf(14) != -1){
+                    var pos = hexa.indexOf(14);
+                    hexa[pos] = 'E';
+                } else if(hexa.indexOf(15) != -1){
+                    var pos = hexa.indexOf(15);
+                    hexa[pos] = 'F';
+                }
+
+            }
+            var conver = hexa.join("");
+            console.log(conver);
+            alert("O número convertido é: " + conver);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+            //NÃO DÁ CERTO ME MATA
+        }
+        if(p_hexa == 2){
+            n_recebido = prompt("Insira o número binário para ser convertido para decimal:");
+            n_transformado = n_recebido.split("");
+            n_transformado.reverse();
+            n_numero = n_transformado.map(Number);
+            console.log(n_numero);
+            for ( i = 0; i <= (n_numero.length -1); i++){    
+                n_resultado = n_numero[i]*(Math.pow(2,i));
+                f += n_resultado;
+            }        
+            n_decimal = f
+            while(n_decimal >= 1){
+                n_convertido = n_decimal;
+                n_convertido =  n_convertido % 16;
+                hexa.push(n_convertido);
+                n_decimal = Math.floor(n_decimal/16);
+            }
+            hexa.reverse();
+            //console.log(hexa)
+            //até aqui deu certo
+            for( i = 0; i <= hexa.length; i++){
+                if(hexa.indexOf(10) != -1){
+                    var pos = hexa.indexOf(10);
+                    hexa[pos] = 'A';
+                } else if(hexa.indexOf(11) != -1){
+                    var pos = hexa.indexOf(11);
+                    hexa[pos] = 'B';
+                } else if(hexa.indexOf(12) != -1){
+                    var pos = hexa.indexOf(12);
+                    hexa[pos] = 'C';
+                } else if(hexa.indexOf(13) != -1){
+                    var pos = hexa.indexOf(13);
+                    hexa[pos] = 'D';
+                } else if(hexa.indexOf(14) != -1){
+                    var pos = hexa.indexOf(14);
+                    hexa[pos] = 'E';
+                } else if(hexa.indexOf(15) != -1){
+                    var pos = hexa.indexOf(15);
+                    hexa[pos] = 'F';
+                }
+
+            }
+            var conver = hexa.join("");
+            console.log(conver);
+            alert("O número convertido é: " + conver);
+            voltar = prompt("Deseja converter novamente?\nSim ou Não")
+        }
+        if(p_hexa == 3){
+            n_recebido = prompt("Insira o número octal para ser convertido para decimal:");
+            n_transformado = n_recebido.split("");
+            n_transformado.reverse();
+            n_numero = n_transformado.map(Number);
+            console.log(n_numero);
+            for ( i = 0; i <= (n_numero.length -1); i++){    
+                n_resultado = n_numero[i]*(Math.pow(8,i));
+                f += n_resultado;
+            }
+            //alert("O número convertido é: " + f);
+            n_decimal = f
+            while(n_decimal >= 1){
+                n_convertido = n_decimal;
+                n_convertido =  n_convertido % 16;
+                hexa.push(n_convertido);
+                n_decimal = Math.floor(n_decimal/16);
+            }
+            hexa.reverse();
+            //console.log(hexa)
+            //até aqui deu certo
+            for( i = 0; i <= hexa.length; i++){
+                if(hexa.indexOf(10) != -1){
+                    var pos = hexa.indexOf(10);
+                    hexa[pos] = 'A';
+                } else if(hexa.indexOf(11) != -1){
+                    var pos = hexa.indexOf(11);
+                    hexa[pos] = 'B';
+                } else if(hexa.indexOf(12) != -1){
+                    var pos = hexa.indexOf(12);
+                    hexa[pos] = 'C';
+                } else if(hexa.indexOf(13) != -1){
+                    var pos = hexa.indexOf(13);
+                    hexa[pos] = 'D';
+                } else if(hexa.indexOf(14) != -1){
+                    var pos = hexa.indexOf(14);
+                    hexa[pos] = 'E';
+                } else if(hexa.indexOf(15) != -1){
+                    var pos = hexa.indexOf(15);
+                    hexa[pos] = 'F';
+                }
+
+            }
+            var conver = hexa.join("");
+            console.log(conver);
+            alert("O número convertido é: " + conver);
+            voltar = prompt("Deseja converter novamente?\nSim ouNão")
+
+        }
+    }
+}while(voltar == 'sim' || voltar == 'Sim' || voltar == "SIM")
