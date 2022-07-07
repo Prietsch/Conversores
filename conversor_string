@@ -1,0 +1,209 @@
+//HEXA PRA DECIMAL
+/*var base16 =0, base10 = 0; 
+base16 = prompt("Insira o número hexadecimal para converter para binário");
+for(let i = 0, c = base16.length - 1; i <= base16.length, c >= 0; i++, c--){
+    if(base16.charAt(i) === 'a' || base16.charAt(i) === 'A'){
+        base10 += 10 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'b' || base16.charAt(i) === 'B'){
+        base10 += 11 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'c' || base16.charAt(i) === 'C'){
+        base10 += 12 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'd' || base16.charAt(i) === 'D'){
+        base10 += 13 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'e' || base16.charAt(i) === 'E'){
+        base10 += 14 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'f' || base16.charAt(i) === 'F'){
+        base10 += 15 * Math.pow(16, c)
+    } else{
+        base10 += base16.charAt(i) * Math.pow(16, c)
+    }
+}
+alert("O número convertido para decimal é: "+ base10)
+
+//HEXA PARA BINÁRIO, PASSANDO POR DECIMAL
+var base16 =0, base10 = 0, base2 = ''; 
+base16 = prompt("Insira o número hexadecimal para converter para binário");
+for(let i = 0, c = base16.length - 1; i <= base16.length, c >= 0; i++, c--){
+    if(base16.charAt(i) === 'a' || base16.charAt(i) === 'A'){
+        base10 += 10 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'b' || base16.charAt(i) === 'B'){
+        base10 += 11 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'c' || base16.charAt(i) === 'C'){
+        base10 += 12 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'd' || base16.charAt(i) === 'D'){
+        base10 += 13 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'e' || base16.charAt(i) === 'E'){
+        base10 += 14 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'f' || base16.charAt(i) === 'F'){
+        base10 += 15 * Math.pow(16, c)
+    } else{
+        base10 += base16.charAt(i) * Math.pow(16, c)
+    }
+}
+while(base10>=1){
+    base2 = base10%2 + base2
+    base10 = Math.floor(base10/2) 
+}
+alert("O número convertido para binário é: "+ base2)
+
+//HEXA PARA OCTAL PASSANDO POR DECIMAL
+var base16 =0, base10 = 0, base8 = ''; 
+base16 = prompt("Insira o número hexadecimal para converter para binário");
+for(let i = 0, c = base16.length - 1; i <= base16.length, c >= 0; i++, c--){
+    if(base16.charAt(i) === 'a' || base16.charAt(i) === 'A'){
+        base10 += 10 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'b' || base16.charAt(i) === 'B'){
+        base10 += 11 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'c' || base16.charAt(i) === 'C'){
+        base10 += 12 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'd' || base16.charAt(i) === 'D'){
+        base10 += 13 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'e' || base16.charAt(i) === 'E'){
+        base10 += 14 * Math.pow(16, c)
+    } else if(base16.charAt(i) === 'f' || base16.charAt(i) === 'F'){
+        base10 += 15 * Math.pow(16, c)
+    } else{
+        base10 += base16.charAt(i) * Math.pow(16, c)
+    }
+}
+while(base10>=1){
+    base8 = base10%8 + base8
+    base10 = Math.floor(base10/8) 
+}
+alert("O número convertido para octal é: "+ base8)
+
+//DECIMAL PARA BINARIO 
+var base10, base2 = '';
+base10 = Number(prompt("Insira o número decimal para converter para binário:"))
+while(base10>=1){
+    base2 = base10%2 + base2
+    base10 = Math.floor(base10/2) 
+}
+alert("O número convertido para binário é: "+ base2)
+
+//DECIMAL PARA OCTAL
+var base10, base8 = '';
+base10 = Number(prompt("Insira o número decimal para converter para octal:"))
+while(base10>=1){
+    base8 = base10%8 + base8
+    base10 = Math.floor(base10/8) 
+}
+alert("O número convertido para octal é: "+ base8)
+
+//DECIMAL PARA HEXA
+var base10, base16 = '';
+base10 = prompt("Insira o número decimal para converter para octal:")
+while(base10 != 0){
+    let c = base10%16
+    if(c == '10'){
+        base16 = 'A' + base16
+    } else if(c == '11'){
+        base16 = 'B' + base16
+    }else if(c == '12'){
+        base16 = 'C' + base16
+    }else if(c == '13'){
+        base16 = 'D' + base16
+    }else if(c == '14'){
+        base16 = 'E' + base16
+    }else if(c == '15'){
+        base16 = 'F' + base16
+    }else{
+        base16 = base10%16 + base16
+    }
+    base10 = Math.floor(base10/16) 
+}
+alert("O número convertido para hexadecimal é: "+ base16)
+
+//BINARIO PARA DECIMAL
+var base2, base10 = 0;
+base2 = prompt("Insira o número binário para converter para decimal:")
+for(let i = 0, c = base2.length - 1; i <= base2.length, c >= 0; i++, c--){
+    base10 = base2.charAt(i) * Math.pow(2, c) + base10
+}
+alert("O número convertido para decimal é: "+ base10)
+
+//BINARIO PARA OCTAL, PASSANDO POR DECIMAL
+var base2, base10 = 0, base8 = '';
+base2 = prompt("Insira o número binário para converter para decimal:")
+for(let i = 0, c = base2.length - 1; i <= base2.length, c >= 0; i++, c--){
+    base10 = base2.charAt(i) * Math.pow(2, c) + base10
+}
+while(base10>=1){
+    base8 = base10%8 + base8
+    base10 = Math.floor(base10/8) 
+}
+alert("O número convertido para octal é: "+ base8)
+
+//BINARIO PARA HEXA, PASSANDO POR DECIMAL
+var base2, base10 = 0, base16 = '';
+base2 = prompt("Insira o número binário para converter para decimal:")
+for(let i = 0, c = base2.length - 1; i <= base2.length, c >= 0; i++, c--){
+    base10 = base2.charAt(i) * Math.pow(2, c) + base10
+}
+while(base10 != 0){
+    let c = base10%16
+    if(c == '10'){
+        base16 = 'A' + base16
+    } else if(c == '11'){
+        base16 = 'B' + base16
+    }else if(c == '12'){
+        base16 = 'C' + base16
+    }else if(c == '13'){
+        base16 = 'D' + base16
+    }else if(c == '14'){
+        base16 = 'E' + base16
+    }else if(c == '15'){
+        base16 = 'F' + base16
+    }else{
+        base16 = base10%16 + base16
+    }
+    base10 = Math.floor(base10/16) 
+}
+alert("O número convertido para hexadecimal é: "+ base16)
+
+//OCTAL PARA DECIMAL
+var base8, base10 = 0;
+base8 = prompt("Insira o número binário para converter para decimal:")
+for(let i = 0, c = base8.length - 1; i <= base8.length, c >= 0; i++, c--){
+    base10 = base8.charAt(i) * Math.pow(8, c) + base10
+}
+alert("O número convertido para decimal é: "+ base10)
+
+//OCTAL PARA BINÁRIO, PASSANDO POR DECIMAL
+var base8, base10 = 0, base2= '';
+base8 = prompt("Insira o número binário para converter para decimal:")
+for(let i = 0, c = base8.length - 1; i <= base8.length, c >= 0; i++, c--){
+    base10 = base8.charAt(i) * Math.pow(8, c) + base10
+}
+while(base10>=1){
+    base2 = base10%2 + base2
+    base10 = Math.floor(base10/2) 
+}
+alert("O número convertido para binário é: "+ base2)
+
+//OCTAL PARA HEXA, PASSANDO POR DECIMAL
+var base8, base10 = 0, base16= '';
+base8 = prompt("Insira o número binário para converter para decimal:")
+for(let i = 0, c = base8.length - 1; i <= base8.length, c >= 0; i++, c--){
+    base10 = base8.charAt(i) * Math.pow(8, c) + base10
+}
+while(base10 != 0){
+    let c = base10%16
+    if(c == '10'){
+        base16 = 'A' + base16
+    } else if(c == '11'){
+        base16 = 'B' + base16
+    }else if(c == '12'){
+        base16 = 'C' + base16
+    }else if(c == '13'){
+        base16 = 'D' + base16
+    }else if(c == '14'){
+        base16 = 'E' + base16
+    }else if(c == '15'){
+        base16 = 'F' + base16
+    }else{
+        base16 = base10%16 + base16
+    }
+    base10 = Math.floor(base10/16) 
+}
+alert("O número convertido para hexadecimal é: "+ base16)*/
